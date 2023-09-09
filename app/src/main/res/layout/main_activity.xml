@@ -14,6 +14,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_next_song"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/next_song"
+        app:layout_constraintStart_toEndOf="@id/btn_start_speak"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_stop_speak"
@@ -21,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="@string/stop_speak"
-        app:layout_constraintStart_toEndOf="@id/btn_start_speak"
+        app:layout_constraintStart_toEndOf="@id/btn_next_song"
         app:layout_constraintTop_toTopOf="parent" />
 
 

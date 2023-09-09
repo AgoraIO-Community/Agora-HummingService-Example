@@ -122,7 +122,7 @@ public class MainActivity extends Activity {
                 })
                 .build();
         mEngine.init();
-        mEngine.switchSong("同桌的你");
+        mEngine.switchSong("大花轿");
     }
 
     private void initRtc() {
@@ -160,6 +160,7 @@ public class MainActivity extends Activity {
                         autoSubscribeAudio = true;
                         clientRoleType = io.agora.rtc2.Constants.CLIENT_ROLE_BROADCASTER;
                     }});
+            Log.i(TAG, "joinChannel: " + ret);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -190,6 +191,12 @@ public class MainActivity extends Activity {
             }
         });
 
+        binding.btnNextSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEngine.switchSong("同桌的你");
+            }
+        });
     }
 
 
