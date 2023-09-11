@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 import io.agora.agora_kscoreengine_example.databinding.MainActivityBinding;
 import io.agora.kscore.AgoraKScoreCallback;
+import io.agora.kscore.AgoraKScoreCode;
 import io.agora.kscore.AgoraKScoreEngine;
 import io.agora.rtc2.ChannelMediaOptions;
 import io.agora.rtc2.Constants;
@@ -118,6 +120,14 @@ public class MainActivity extends Activity {
                     @Override
                     public void onScoreResult(int code, String msg) {
                         Log.i(TAG, "onScoreResult: " + code + " " + msg);
+                        if (code == AgoraKScoreCode.SUCCESS) {
+                            MainActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(MainActivity.this, "你太棒了", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
                 })
                 .build();
@@ -191,10 +201,10 @@ public class MainActivity extends Activity {
             }
         });
 
-        binding.btnNextSong.setOnClickListener(new View.OnClickListener() {
+        binding.btnSetSongName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEngine.switchSong("同桌的你");
+                mEngine.switchSong(binding.inputSongName.getText().toString());
             }
         });
     }
