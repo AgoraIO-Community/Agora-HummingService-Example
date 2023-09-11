@@ -145,6 +145,13 @@ public class MainActivity extends Activity {
                 super.onJoinChannelSuccess(channel, uid, elapsed);
                 Log.i(TAG, "onJoinChannelSuccess: ");
             }
+
+            @Override
+            public void onLeaveChannel(RtcStats stats) {
+                super.onLeaveChannel(stats);
+                Log.i(TAG, "onLeaveChannel: ");
+                registerAudioFrame(false);
+            }
         };
         config.mAudioScenario = io.agora.rtc2.Constants.AudioScenario.getValue(io.agora.rtc2.Constants.AudioScenario.DEFAULT);
 
@@ -159,22 +166,26 @@ public class MainActivity extends Activity {
             );
 
             mRtcEngine.setRecordingAudioFrameParameters(16000, 1, io.agora.rtc2.Constants.RAW_AUDIO_FRAME_OP_MODE_READ_ONLY, 640);
-            registerAudioFrame(true);
 
-            int ret = mRtcEngine.joinChannel(
-                    KeyCenter.getRtcToken(KeyCenter.CHANNEL_ID, KeyCenter.getUserUid()), KeyCenter.CHANNEL_ID,
-                    KeyCenter.getUserUid(),
-                    new ChannelMediaOptions() {{
-                        publishMicrophoneTrack = false;
-                        publishCustomAudioTrack = false;
-                        autoSubscribeAudio = true;
-                        clientRoleType = io.agora.rtc2.Constants.CLIENT_ROLE_BROADCASTER;
-                    }});
-            Log.i(TAG, "joinChannel: " + ret);
+            //joinChannel();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void joinChannel() {
+        registerAudioFrame(true);
+        int ret = mRtcEngine.joinChannel(
+                KeyCenter.getRtcToken(KeyCenter.CHANNEL_ID, KeyCenter.getUserUid()), KeyCenter.CHANNEL_ID,
+                KeyCenter.getUserUid(),
+                new ChannelMediaOptions() {{
+                    publishMicrophoneTrack = true;
+                    publishCustomAudioTrack = true;
+                    autoSubscribeAudio = true;
+                    clientRoleType = io.agora.rtc2.Constants.CLIENT_ROLE_BROADCASTER;
+                }});
+        Log.i(TAG, "joinChannel: " + ret);
     }
 
     public boolean updateRoleSpeak(boolean isSpeak) {
@@ -190,14 +201,16 @@ public class MainActivity extends Activity {
         binding.btnStartSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateRoleSpeak(true);
+                joinChannel();
+                //updateRoleSpeak(true);
             }
         });
         binding.btnStopSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateRoleSpeak(false);
-                registerAudioFrame(false);
+
+                mRtcEngine.leaveChannel();
             }
         });
 
@@ -213,7 +226,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mEngine.release();
+
+        if (null != mEngine) {
+            mEngine.release();
+        }
+
+        RtcEngine.destroy();
     }
 
     private void registerAudioFrame(boolean enable) {
@@ -236,6 +254,7 @@ public class MainActivity extends Activity {
                     buffer.get(origin);
                     buffer.flip();
 
+                    Log.i(TAG, "onRecordAudioFrame: " + length);
                     mEngine.pushPcmData(origin);
 
                     return false;
