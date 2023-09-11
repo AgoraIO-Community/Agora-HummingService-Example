@@ -131,7 +131,7 @@ public class MainActivity extends Activity {
                     }
                 })
                 .build();
-        mEngine.init();
+        mEngine.init(KeyCenter.APP_ID, "");
         mEngine.switchSong("大花轿");
     }
 
@@ -254,7 +254,6 @@ public class MainActivity extends Activity {
                     buffer.get(origin);
                     buffer.flip();
 
-                    Log.i(TAG, "onRecordAudioFrame: " + length);
                     mEngine.pushPcmData(origin);
 
                     return false;

@@ -55,6 +55,12 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "Agora-KScoreEngine-Example-${versionName}-${variant.buildType.name}-${releaseTime()}.apk"
+        }
+    }
 }
 
 dependencies {
@@ -69,4 +75,7 @@ dependencies {
     //implementation 'commons-codec:commons-codec:1.15'
 
     implementation 'io.agora.rtc:agora-special-full:4.1.1.14'
+}
+static def releaseTime() {
+    return new Date().format("yyyyMMdd_HHmmss")
 }
