@@ -4,6 +4,7 @@ import java.util.Random;
 
 import io.agora.media.RtcTokenBuilder;
 import io.agora.rtm.RtmTokenBuilder;
+import io.agora.rtm.RtmTokenBuilder2;
 
 
 public class KeyCenter {
@@ -40,6 +41,21 @@ public class KeyCenter {
                     BuildConfig.APP_CERTIFICATE,
                     String.valueOf(uid),
                     RtmTokenBuilder.Role.Rtm_User,
+                    0
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public static String getRtmToken2(int uid) {
+        try {
+            return new RtmTokenBuilder2().buildToken(
+                    APP_ID,
+                    BuildConfig.APP_CERTIFICATE,
+                    String.valueOf(uid),
                     0
             );
         } catch (Exception e) {

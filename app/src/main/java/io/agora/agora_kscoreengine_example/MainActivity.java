@@ -23,6 +23,8 @@ import io.agora.agora_kscoreengine_example.databinding.MainActivityBinding;
 import io.agora.kscore.AgoraKScoreCallback;
 import io.agora.kscore.AgoraKScoreCode;
 import io.agora.kscore.AgoraKScoreEngine;
+import io.agora.kscore.EngineAction;
+import io.agora.kscore.EngineCode;
 import io.agora.rtc2.ChannelMediaOptions;
 import io.agora.rtc2.Constants;
 import io.agora.rtc2.IAudioFrameObserver;
@@ -129,9 +131,14 @@ public class MainActivity extends Activity {
                             });
                         }
                     }
+
+                    @Override
+                    public void onEngineResult(@NonNull EngineAction engineAction, @NonNull EngineCode engineCode, @NonNull String extraInfo) {
+                        Log.i(TAG, "onEngineResult: " + engineAction + " " + engineCode + " " + extraInfo);
+                    }
                 })
                 .build();
-        mEngine.init(KeyCenter.APP_ID, "");
+        mEngine.init(KeyCenter.APP_ID, KeyCenter.getRtmToken2(10001));
         mEngine.switchSong("大花轿");
     }
 
