@@ -1,11 +1,14 @@
-package io.agora.agora_kscoreengine_example;
+package io.agora.agora_hummingservice_example;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,20 +16,24 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 
 import java.nio.ByteBuffer;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import io.agora.agora_kscoreengine_example.databinding.MainActivityBinding;
-import io.agora.kscore.AgoraKScoreCallback;
-import io.agora.kscore.AgoraKScoreCode;
-import io.agora.kscore.AgoraKScoreEngine;
-import io.agora.kscore.EngineAction;
-import io.agora.kscore.EngineCode;
+import io.agora.humming.HummingService;
+import io.agora.humming.HummingServiceCallback;
+import io.agora.humming.HummingServiceConfig;
+import io.agora.humming.ResultCode;
+import io.agora.humming.ServiceCode;
+import io.agora.humming.ServiceEvent;
+import io.agora.humming.ServiceZone;
+import io.agora.humming_sdk_example.BuildConfig;
+import io.agora.humming_sdk_example.R;
+import io.agora.humming_sdk_example.databinding.MainActivityBinding;
 import io.agora.rtc2.ChannelMediaOptions;
-import io.agora.rtc2.Constants;
 import io.agora.rtc2.IAudioFrameObserver;
 import io.agora.rtc2.IRtcEngineEventHandler;
 import io.agora.rtc2.RtcEngine;
@@ -35,14 +42,18 @@ import io.agora.rtc2.audio.AudioParams;
 
 
 public class MainActivity extends Activity {
-    private final String TAG = "AgoraKScoreEngine" + MainActivity.class.getSimpleName();
+    private final String TAG = "AgoraHummingService" + MainActivity.class.getSimpleName();
     private MainActivityBinding binding;
 
     private ExecutorService mExecutorCacheService;
     private ExecutorService mExecutorService;
 
-    private AgoraKScoreEngine mEngine;
+    private HummingService mHummingService;
+    private HummingServiceConfig mHummingServiceConfig;
     private RtcEngine mRtcEngine;
+
+    private int mInitCount = 0;
+    private ServiceZone mServiceZone;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +64,7 @@ public class MainActivity extends Activity {
         initData();
         initView();
 
-        initEngine();
+        initHumming();
         initRtc();
     }
 
@@ -65,6 +76,7 @@ public class MainActivity extends Activity {
                 0, TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
 
+        mServiceZone = ServiceZone.getCode(2);
     }
 
     @Override
@@ -114,32 +126,77 @@ public class MainActivity extends Activity {
     }
 
 
-    private void initEngine() {
-        mEngine = new AgoraKScoreEngine.Builder(getApplicationContext())
-                .enableLog(true, true)
-                .samplesRate(16000, 1, 16)
-                .callback(new AgoraKScoreCallback() {
+    private void initHumming() {
+        mHummingService = HummingService.create();
+        mHummingServiceConfig = new HummingServiceConfig() {
+            {
+                this.context = getApplicationContext();
+                this.appId = KeyCenter.APP_ID;
+                this.rtmToken = KeyCenter.getRtmToken2(KeyCenter.getUserUid());
+//                this.rtmToken = KeyCenter.getRtmToken(KeyCenter.getUserUid());
+                this.userId = String.valueOf(KeyCenter.getUserUid());
+                this.serviceZone = mServiceZone;
+                this.enableLog = true;
+                this.enableSaveLogToFile = true;
+                this.samplesRate = 16000;
+                this.channels = 1;
+                this.bitsPerSample = 16;
+                this.callback = new HummingServiceCallback() {
                     @Override
-                    public void onScoreResult(int code, String msg) {
-                        Log.i(TAG, "onScoreResult: " + code + " " + msg);
-                        if (code == AgoraKScoreCode.SUCCESS) {
+                    public void onScoreResult(ResultCode code, String msg, float score, long costTime) {
+                        if (code == ResultCode.SUCCESS) {
                             MainActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     Toast.makeText(MainActivity.this, "你太棒了", Toast.LENGTH_SHORT).show();
+                                    binding.tvResult.setText(binding.tvResult.getText() + String.format(Locale.getDefault(), "score:%3.2f  coastTime:%dms\n",
+                                            score, costTime));
                                 }
                             });
                         }
                     }
 
                     @Override
-                    public void onEngineResult(@NonNull EngineAction engineAction, @NonNull EngineCode engineCode, @NonNull String extraInfo) {
-                        Log.i(TAG, "onEngineResult: " + engineAction + " " + engineCode + " " + extraInfo);
+                    public void onEventResult(@NonNull ServiceEvent event, @NonNull ServiceCode code, @NonNull String msg) {
+                        if (ServiceEvent.INITIALIZE == event) {
+                            if (ServiceCode.INITIALIZE_FAIL == code) {
+                                initialize();
+                                MainActivity.this.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(MainActivity.this, "init失败：" + msg, Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            } else if (ServiceCode.SUCCESS == code) {
+                                MainActivity.this.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        initSuccessUI();
+                                    }
+                                });
+                            }
+                        }
                     }
-                })
-                .build();
-        mEngine.init(KeyCenter.APP_ID, KeyCenter.getRtmToken2(10001));
-        mEngine.switchSong("大花轿");
+                };
+            }
+        };
+
+        initialize();
+    }
+
+    private void initialize() {
+        mInitCount++;
+        if (mInitCount <= 10) {
+            mHummingService.initialize(mHummingServiceConfig);
+        }
+    }
+
+    private void initSuccessUI() {
+        binding.btnStartSpeak.setEnabled(true);
+        binding.btnStopSpeak.setEnabled(false);
+        binding.btnSetSongName.setEnabled(true);
+
+        mHummingService.switchSong("大花轿");
     }
 
     private void initRtc() {
@@ -151,6 +208,12 @@ public class MainActivity extends Activity {
             public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
                 super.onJoinChannelSuccess(channel, uid, elapsed);
                 Log.i(TAG, "onJoinChannelSuccess: ");
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        binding.btnStopSpeak.setEnabled(true);
+                    }
+                });
             }
 
             @Override
@@ -164,7 +227,7 @@ public class MainActivity extends Activity {
 
         try {
             mRtcEngine = RtcEngine.create(config);
-            mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
+            mRtcEngine.setChannelProfile(io.agora.rtc2.Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
 
             Log.i(TAG, "SDK version:" + RtcEngine.getSdkVersion());
             mRtcEngine.enableAudio();
@@ -205,10 +268,19 @@ public class MainActivity extends Activity {
     }
 
     private void initView() {
+        binding.btnStartSpeak.setEnabled(false);
+        binding.btnStopSpeak.setEnabled(false);
+        binding.btnSetSongName.setEnabled(false);
+
+        binding.version.setText(BuildConfig.VERSION_NAME);
+
         binding.btnStartSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 joinChannel();
+                binding.btnStartSpeak.setEnabled(false);
+                binding.btnStopSpeak.setEnabled(false);
+                binding.btnSetSongName.setEnabled(false);
                 //updateRoleSpeak(true);
             }
         });
@@ -216,7 +288,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 updateRoleSpeak(false);
-
+                binding.btnStartSpeak.setEnabled(true);
+                binding.btnStopSpeak.setEnabled(false);
+                binding.btnSetSongName.setEnabled(true);
                 mRtcEngine.leaveChannel();
             }
         });
@@ -224,7 +298,42 @@ public class MainActivity extends Activity {
         binding.btnSetSongName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEngine.switchSong(binding.inputSongName.getText().toString());
+                if (TextUtils.isEmpty(binding.inputSongName.getText().toString())) {
+                    Toast.makeText(MainActivity.this, "请输入歌曲名", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                binding.btnStartSpeak.setEnabled(true);
+                binding.btnStopSpeak.setEnabled(false);
+                mHummingService.switchSong(binding.inputSongName.getText().toString());
+                Toast.makeText(MainActivity.this, "歌曲设置成功", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final String[] regions = getResources().getStringArray(R.array.region);
+        ArrayAdapter<String> regionAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regions);
+        binding.regionSpinner.setAdapter(regionAdapter);
+        binding.regionSpinner.setSelection(2);
+        binding.regionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(TAG, "set region: " + regions[position]);
+                mServiceZone = ServiceZone.getCode(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        binding.btnSetRegion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateRoleSpeak(false);
+                mRtcEngine.leaveChannel();
+                mInitCount = 0;
+                initHumming();
+                Toast.makeText(MainActivity.this, "设置服务区域成功", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -234,9 +343,7 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
 
-        if (null != mEngine) {
-            mEngine.release();
-        }
+        HummingService.destroy();
 
         RtcEngine.destroy();
     }
@@ -261,7 +368,7 @@ public class MainActivity extends Activity {
                     buffer.get(origin);
                     buffer.flip();
 
-                    mEngine.pushPcmData(origin);
+                    mHummingService.pushPcmData(origin);
 
                     return false;
                 }

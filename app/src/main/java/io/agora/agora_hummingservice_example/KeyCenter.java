@@ -1,7 +1,8 @@
-package io.agora.agora_kscoreengine_example;
+package io.agora.agora_hummingservice_example;
 
 import java.util.Random;
 
+import io.agora.humming_sdk_example.BuildConfig;
 import io.agora.media.RtcTokenBuilder;
 import io.agora.rtm.RtmTokenBuilder;
 import io.agora.rtm.RtmTokenBuilder2;
@@ -56,7 +57,7 @@ public class KeyCenter {
                     APP_ID,
                     BuildConfig.APP_CERTIFICATE,
                     String.valueOf(uid),
-                    0
+                    24 * 60 * 60
             );
         } catch (Exception e) {
             e.printStackTrace();

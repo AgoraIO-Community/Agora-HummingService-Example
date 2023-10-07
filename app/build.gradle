@@ -7,15 +7,15 @@ InputStream inputStream = project.rootProject.file('local.properties').newDataIn
 properties.load(inputStream)
 
 android {
-    namespace 'io.agora.agora_kscoreengine_example'
+    namespace 'io.agora.humming_sdk_example'
     compileSdk 31
 
     defaultConfig {
-        applicationId "io.agora.agora_kscoreengine_example"
+        applicationId "io.agora.humming_sdk_example"
         minSdk 22
         targetSdk 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.1.1007.1"
 
         flavorDimensions "channel"
 
@@ -58,7 +58,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "Agora-KScoreEngine-Example-${versionName}-${variant.buildType.name}-${releaseTime()}.apk"
+            outputFileName = "Agora-HummingService-Example-${versionName}-${variant.buildType.name}-${releaseTime()}.apk"
         }
     }
 }
@@ -72,7 +72,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'io.agora:authentication:2.0.0'
-    //implementation 'commons-codec:commons-codec:1.15'
+    implementation 'commons-codec:commons-codec:1.16.0'
 
     implementation 'io.agora.rtc:agora-special-full:4.1.1.14'
 }

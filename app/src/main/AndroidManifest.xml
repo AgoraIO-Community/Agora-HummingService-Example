@@ -17,7 +17,7 @@
         android:theme="@style/Theme.AgoraKScoreEngineSDK"
         tools:targetApi="31">
         <activity
-            android:name="io.agora.agora_kscoreengine_example.MainActivity"
+            android:name="io.agora.agora_hummingservice_example.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

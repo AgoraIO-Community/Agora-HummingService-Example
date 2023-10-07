@@ -4,6 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+    <Spinner
+        android:id="@+id/region_spinner"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:background="#E5E5E5"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_set_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/set_region"
+        app:layout_constraintStart_toEndOf="@id/region_spinner"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/input_song_name"
@@ -11,16 +30,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btn_set_region" />
 
     <Button
         android:id="@+id/btn_set_song_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:text="@string/set_song_name"
         app:layout_constraintStart_toEndOf="@id/input_song_name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btn_set_region" />
 
     <Button
         android:id="@+id/btn_start_speak"
@@ -31,6 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_song_name" />
 
+
     <Button
         android:id="@+id/btn_stop_speak"
         android:layout_width="wrap_content"
@@ -39,6 +59,26 @@
         android:text="@string/stop_speak"
         app:layout_constraintStart_toEndOf="@id/btn_start_speak"
         app:layout_constraintTop_toBottomOf="@id/input_song_name" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_start_speak" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

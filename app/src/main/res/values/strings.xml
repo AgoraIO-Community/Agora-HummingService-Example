@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Agora-KScoreEngine-Example</string>
+    <string name="app_name">Agora-HummingService-Example</string>
     <string name="start_speak">开始唱歌</string>
     <string name="stop_speak">停止唱歌</string>
     <string name="set_song_name">设置歌曲名称</string>
+    <string name="set_region">设置服务区域</string>
 </resources>

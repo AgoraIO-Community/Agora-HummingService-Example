@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Agora-KScoreEngine-SDK-Example"
+rootProject.name = "Agora-HummingService-SDK-Example"
 include ':app'
