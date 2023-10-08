@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Agora-HummingService-SDK-Example"
+rootProject.name = "Agora-HummingService-Example"
 include ':app'
