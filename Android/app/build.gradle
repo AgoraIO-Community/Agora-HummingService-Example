@@ -15,7 +15,7 @@ android {
         minSdk 22
         targetSdk 30
         versionCode 1
-        versionName "1.1.1.1008.1"
+        versionName exampleVersion.toString()
 
         flavorDimensions "channel"
 
@@ -80,6 +80,7 @@ dependencies {
 
     implementation 'io.agora.rtc:agora-special-full:4.1.1.14'
 }
+
 static def releaseTime() {
     return new Date().format("yyyyMMdd_HHmmss")
 }

@@ -141,6 +141,7 @@ public class MainActivity extends Activity {
                 this.samplesRate = 16000;
                 this.channels = 1;
                 this.bitsPerSample = 16;
+//                this.enableTimer = false;
                 this.callback = new HummingServiceCallback() {
                     @Override
                     public void onScoreResult(ResultCode code, String msg, float score, long costTime) {
@@ -159,7 +160,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void onEventResult(@NonNull ServiceEvent event, @NonNull ServiceCode code, @NonNull String msg) {
                         if (ServiceEvent.INITIALIZE == event) {
-                            if (ServiceCode.INITIALIZE_FAIL == code) {
+                            if (ServiceCode.ERROR_INITIALIZE_FAIL == code) {
                                 initialize();
                                 MainActivity.this.runOnUiThread(new Runnable() {
                                     @Override
@@ -334,6 +335,14 @@ public class MainActivity extends Activity {
                 mInitCount = 0;
                 initHumming();
                 Toast.makeText(MainActivity.this, "设置服务区域成功", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.btnRecognition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int ret = mHummingService.invoke();
+                Log.i(TAG, "invoke: " + ret);
             }
         });
     }

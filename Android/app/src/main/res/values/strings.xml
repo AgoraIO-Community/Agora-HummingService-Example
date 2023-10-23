@@ -4,4 +4,5 @@
     <string name="stop_speak">停止唱歌</string>
     <string name="set_song_name">设置歌曲名称</string>
     <string name="set_region">设置服务区域</string>
+    <string name="recognition">识别</string>
 </resources>
