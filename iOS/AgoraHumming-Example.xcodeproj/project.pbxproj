@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26CFF17E2AAEBD9B008A09BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF17D2AAEBD9B008A09BE /* AppDelegate.swift */; };
+		26CFF1802AAEBD9B008A09BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF17F2AAEBD9B008A09BE /* SceneDelegate.swift */; };
+		26CFF1822AAEBD9B008A09BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1812AAEBD9B008A09BE /* MainViewController.swift */; };
+		26CFF1852AAEBD9B008A09BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CFF1832AAEBD9B008A09BE /* Main.storyboard */; };
+		26CFF1872AAEBD9C008A09BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CFF1862AAEBD9C008A09BE /* Assets.xcassets */; };
+		26CFF18A2AAEBD9C008A09BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CFF1882AAEBD9C008A09BE /* LaunchScreen.storyboard */; };
+		26CFF1E22AAEFE2E008A09BE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1E12AAEFE2E008A09BE /* MainView.swift */; };
+		26CFF1E42AAEFF0E008A09BE /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26CFF1E32AAEFF0E008A09BE /* test.wav */; };
+		26CFF1E62AAF07A0008A09BE /* RTCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1E52AAF07A0008A09BE /* RTCManager.swift */; };
+		26CFF1E82AAF08CC008A09BE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1E72AAF08CC008A09BE /* Config.swift */; };
+		26CFF1EA2AAF0998008A09BE /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1E92AAF0998008A09BE /* GCDTimer.swift */; };
+		26CFF1F02AAF1335008A09BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1EF2AAF1335008A09BE /* ViewController.swift */; };
+		26CFF1F42AAF1439008A09BE /* OCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CFF1F32AAF1439008A09BE /* OCVC.m */; };
+		554F0E09FF75CA80ED006502 /* Pods_AgoraHumming_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D35F9E4E4795C5C704C9A9 /* Pods_AgoraHumming_Example.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26CFF1C92AAEBDD6008A09BE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03309CD2C77C1544B56E577F /* Pods-KScoreEngine-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KScoreEngine-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-KScoreEngine-ExampleTests/Pods-KScoreEngine-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		036B2D285B8AA62A92DEDD7A /* Pods_KScoreEngine_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KScoreEngine_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07EAB323958E37134E82E32A /* Pods_AgoraKScoreEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraKScoreEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26CFF17A2AAEBD9B008A09BE /* AgoraHumming-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AgoraHumming-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26CFF17D2AAEBD9B008A09BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		26CFF17F2AAEBD9B008A09BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		26CFF1812AAEBD9B008A09BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		26CFF1842AAEBD9B008A09BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26CFF1862AAEBD9C008A09BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26CFF1892AAEBD9C008A09BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26CFF18B2AAEBD9C008A09BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26CFF1E12AAEFE2E008A09BE /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		26CFF1E32AAEFF0E008A09BE /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test.wav; sourceTree = "<group>"; };
+		26CFF1E52AAF07A0008A09BE /* RTCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCManager.swift; sourceTree = "<group>"; };
+		26CFF1E72AAF08CC008A09BE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		26CFF1E92AAF0998008A09BE /* GCDTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTimer.swift; sourceTree = "<group>"; };
+		26CFF1EF2AAF1335008A09BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26CFF1F12AAF1438008A09BE /* AgoraHumming-Example-Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AgoraHumming-Example-Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		26CFF1F22AAF1439008A09BE /* OCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCVC.h; sourceTree = "<group>"; };
+		26CFF1F32AAF1439008A09BE /* OCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCVC.m; sourceTree = "<group>"; };
+		28C72F73DD5B3B0983DD8B69 /* Pods-AgoraKScoreEngine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraKScoreEngine.release.xcconfig"; path = "Target Support Files/Pods-AgoraKScoreEngine/Pods-AgoraKScoreEngine.release.xcconfig"; sourceTree = "<group>"; };
+		472880B1C86E1C07F979E031 /* Pods-KScoreEngine-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KScoreEngine-ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-KScoreEngine-ExampleTests/Pods-KScoreEngine-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		49A9D1D6F3DEA60BF5F6387B /* Pods_AgoraKScoreEngine_AgoraKScoreEngineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraKScoreEngine_AgoraKScoreEngineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AE0F9E689384C12B847A72B /* Pods-AgoraKScoreEngine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraKScoreEngine.debug.xcconfig"; path = "Target Support Files/Pods-AgoraKScoreEngine/Pods-AgoraKScoreEngine.debug.xcconfig"; sourceTree = "<group>"; };
+		61619F40842D9016AF15AA55 /* Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests/Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		700E89E0A1943E6FA2585892 /* Pods-AgoraHumming-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraHumming-Example.release.xcconfig"; path = "Target Support Files/Pods-AgoraHumming-Example/Pods-AgoraHumming-Example.release.xcconfig"; sourceTree = "<group>"; };
+		72C3604C270B4B66C0944317 /* Pods-KScoreEngine-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KScoreEngine-Example.debug.xcconfig"; path = "Target Support Files/Pods-KScoreEngine-Example/Pods-KScoreEngine-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		89B120F897B38F3223B6FD95 /* Pods-AgoraHumming-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraHumming-Example.debug.xcconfig"; path = "Target Support Files/Pods-AgoraHumming-Example/Pods-AgoraHumming-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8BBC8E7D32C929619416EFF7 /* Pods-KScoreEngine-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KScoreEngine-Example.release.xcconfig"; path = "Target Support Files/Pods-KScoreEngine-Example/Pods-KScoreEngine-Example.release.xcconfig"; sourceTree = "<group>"; };
+		9B807FD178FAA31084BE7424 /* Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.debug.xcconfig"; path = "Target Support Files/Pods-AgoraKScoreEngine-AgoraKScoreEngineTests/Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A76E92080F4FBE93591A6927 /* Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests/Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B51DE6C5C667A8107FA4EFA1 /* Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.release.xcconfig"; path = "Target Support Files/Pods-AgoraKScoreEngine-AgoraKScoreEngineTests/Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.release.xcconfig"; sourceTree = "<group>"; };
+		CBA68532FFEDBD1AE5ED4408 /* Pods_KScoreEngine_Example_KScoreEngine_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KScoreEngine_Example_KScoreEngine_ExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D35F9E4E4795C5C704C9A9 /* Pods_AgoraHumming_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgoraHumming_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26CFF1772AAEBD9B008A09BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554F0E09FF75CA80ED006502 /* Pods_AgoraHumming_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26CFF1712AAEBD9B008A09BE = {
+			isa = PBXGroup;
+			children = (
+				26CFF17C2AAEBD9B008A09BE /* AgoraHumming-Example */,
+				26CFF17B2AAEBD9B008A09BE /* Products */,
+				C348640917970628694CA638 /* Pods */,
+				99953AFDF5C60F808A2B1131 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		26CFF17B2AAEBD9B008A09BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26CFF17A2AAEBD9B008A09BE /* AgoraHumming-Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26CFF17C2AAEBD9B008A09BE /* AgoraHumming-Example */ = {
+			isa = PBXGroup;
+			children = (
+				26CFF1E72AAF08CC008A09BE /* Config.swift */,
+				26CFF17D2AAEBD9B008A09BE /* AppDelegate.swift */,
+				26CFF17F2AAEBD9B008A09BE /* SceneDelegate.swift */,
+				26CFF1EF2AAF1335008A09BE /* ViewController.swift */,
+				26CFF1812AAEBD9B008A09BE /* MainViewController.swift */,
+				26CFF1E12AAEFE2E008A09BE /* MainView.swift */,
+				26CFF1E52AAF07A0008A09BE /* RTCManager.swift */,
+				26CFF1E92AAF0998008A09BE /* GCDTimer.swift */,
+				26CFF1F22AAF1439008A09BE /* OCVC.h */,
+				26CFF1F32AAF1439008A09BE /* OCVC.m */,
+				26CFF1832AAEBD9B008A09BE /* Main.storyboard */,
+				26CFF1862AAEBD9C008A09BE /* Assets.xcassets */,
+				26CFF1E32AAEFF0E008A09BE /* test.wav */,
+				26CFF1882AAEBD9C008A09BE /* LaunchScreen.storyboard */,
+				26CFF18B2AAEBD9C008A09BE /* Info.plist */,
+				26CFF1F12AAF1438008A09BE /* AgoraHumming-Example-Example-Bridging-Header.h */,
+			);
+			path = "AgoraHumming-Example";
+			sourceTree = "<group>";
+		};
+		99953AFDF5C60F808A2B1131 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07EAB323958E37134E82E32A /* Pods_AgoraKScoreEngine.framework */,
+				49A9D1D6F3DEA60BF5F6387B /* Pods_AgoraKScoreEngine_AgoraKScoreEngineTests.framework */,
+				CBA68532FFEDBD1AE5ED4408 /* Pods_KScoreEngine_Example_KScoreEngine_ExampleUITests.framework */,
+				036B2D285B8AA62A92DEDD7A /* Pods_KScoreEngine_ExampleTests.framework */,
+				F0D35F9E4E4795C5C704C9A9 /* Pods_AgoraHumming_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C348640917970628694CA638 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AE0F9E689384C12B847A72B /* Pods-AgoraKScoreEngine.debug.xcconfig */,
+				28C72F73DD5B3B0983DD8B69 /* Pods-AgoraKScoreEngine.release.xcconfig */,
+				9B807FD178FAA31084BE7424 /* Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.debug.xcconfig */,
+				B51DE6C5C667A8107FA4EFA1 /* Pods-AgoraKScoreEngine-AgoraKScoreEngineTests.release.xcconfig */,
+				72C3604C270B4B66C0944317 /* Pods-KScoreEngine-Example.debug.xcconfig */,
+				8BBC8E7D32C929619416EFF7 /* Pods-KScoreEngine-Example.release.xcconfig */,
+				A76E92080F4FBE93591A6927 /* Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.debug.xcconfig */,
+				61619F40842D9016AF15AA55 /* Pods-KScoreEngine-Example-KScoreEngine-ExampleUITests.release.xcconfig */,
+				03309CD2C77C1544B56E577F /* Pods-KScoreEngine-ExampleTests.debug.xcconfig */,
+				472880B1C86E1C07F979E031 /* Pods-KScoreEngine-ExampleTests.release.xcconfig */,
+				89B120F897B38F3223B6FD95 /* Pods-AgoraHumming-Example.debug.xcconfig */,
+				700E89E0A1943E6FA2585892 /* Pods-AgoraHumming-Example.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26CFF1792AAEBD9B008A09BE /* AgoraHumming-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26CFF1A42AAEBD9D008A09BE /* Build configuration list for PBXNativeTarget "AgoraHumming-Example" */;
+			buildPhases = (
+				40E5021AB7DFC93B4C72D692 /* [CP] Check Pods Manifest.lock */,
+				26CFF1762AAEBD9B008A09BE /* Sources */,
+				26CFF1772AAEBD9B008A09BE /* Frameworks */,
+				26CFF1782AAEBD9B008A09BE /* Resources */,
+				26CFF1C92AAEBDD6008A09BE /* Embed Frameworks */,
+				1F92F610DCD27E2DE4DDC731 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AgoraHumming-Example";
+			productName = "KScoreEngine-Example";
+			productReference = 26CFF17A2AAEBD9B008A09BE /* AgoraHumming-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26CFF1722AAEBD9B008A09BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					26CFF1792AAEBD9B008A09BE = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+					};
+				};
+			};
+			buildConfigurationList = 26CFF1752AAEBD9B008A09BE /* Build configuration list for PBXProject "AgoraHumming-Example" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 26CFF1712AAEBD9B008A09BE;
+			productRefGroup = 26CFF17B2AAEBD9B008A09BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26CFF1792AAEBD9B008A09BE /* AgoraHumming-Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26CFF1782AAEBD9B008A09BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26CFF18A2AAEBD9C008A09BE /* LaunchScreen.storyboard in Resources */,
+				26CFF1872AAEBD9C008A09BE /* Assets.xcassets in Resources */,
+				26CFF1852AAEBD9B008A09BE /* Main.storyboard in Resources */,
+				26CFF1E42AAEFF0E008A09BE /* test.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F92F610DCD27E2DE4DDC731 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgoraHumming-Example/Pods-AgoraHumming-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgoraHumming-Example/Pods-AgoraHumming-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgoraHumming-Example/Pods-AgoraHumming-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40E5021AB7DFC93B4C72D692 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AgoraHumming-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26CFF1762AAEBD9B008A09BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26CFF1822AAEBD9B008A09BE /* MainViewController.swift in Sources */,
+				26CFF1F42AAF1439008A09BE /* OCVC.m in Sources */,
+				26CFF17E2AAEBD9B008A09BE /* AppDelegate.swift in Sources */,
+				26CFF1802AAEBD9B008A09BE /* SceneDelegate.swift in Sources */,
+				26CFF1E22AAEFE2E008A09BE /* MainView.swift in Sources */,
+				26CFF1E62AAF07A0008A09BE /* RTCManager.swift in Sources */,
+				26CFF1E82AAF08CC008A09BE /* Config.swift in Sources */,
+				26CFF1F02AAF1335008A09BE /* ViewController.swift in Sources */,
+				26CFF1EA2AAF0998008A09BE /* GCDTimer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		26CFF1832AAEBD9B008A09BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26CFF1842AAEBD9B008A09BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26CFF1882AAEBD9C008A09BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26CFF1892AAEBD9C008A09BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		26CFF1A22AAEBD9D008A09BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		26CFF1A32AAEBD9D008A09BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26CFF1A52AAEBD9D008A09BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89B120F897B38F3223B6FD95 /* Pods-AgoraHumming-Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HFDBB878GT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AgoraHumming-Example",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AgoraHumming-Example/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = mic;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Agora.AgoraHumming-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AgoraHumming-Example/AgoraHumming-Example-Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26CFF1A62AAEBD9D008A09BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 700E89E0A1943E6FA2585892 /* Pods-AgoraHumming-Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HFDBB878GT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AgoraHumming-Example",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AgoraHumming-Example/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = mic;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Agora.AgoraHumming-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AgoraHumming-Example/AgoraHumming-Example-Example-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26CFF1752AAEBD9B008A09BE /* Build configuration list for PBXProject "AgoraHumming-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26CFF1A22AAEBD9D008A09BE /* Debug */,
+				26CFF1A32AAEBD9D008A09BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26CFF1A42AAEBD9D008A09BE /* Build configuration list for PBXNativeTarget "AgoraHumming-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26CFF1A52AAEBD9D008A09BE /* Debug */,
+				26CFF1A62AAEBD9D008A09BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26CFF1722AAEBD9B008A09BE /* Project object */;
+}
