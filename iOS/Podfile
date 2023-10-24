@@ -9,5 +9,6 @@ target 'AgoraHumming-Example' do
   
   pod 'AgoraRtcEngine_Special_iOS', '4.1.1.15'
   pod 'RTMTokenBuilder', '1.0.1'
-  pod 'AgoraHummingService', :path => "binary/AgoraHummingService_Binary.podspec"
+#  pod 'AgoraHummingService', :path => "binary/AgoraHummingService_Binary.podspec"
+  pod 'AgoraHummingService'
 end
