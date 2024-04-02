@@ -360,15 +360,6 @@ public class MainActivity extends Activity {
     private void registerAudioFrame(boolean enable) {
         if (enable) {
             mRtcEngine.registerAudioFrameObserver(new IAudioFrameObserver() {
-                @Override
-                public boolean onPlaybackAudioFrameBeforeMixing(String channelId, int uid, int type, int samplesPerChannel, int bytesPerSample, int channels, int samplesPerSec, ByteBuffer buffer, long renderTimeMs, int avsync_type) {
-                    return false;
-                }
-
-                @Override
-                public boolean onPublishAudioFrame(String channelId, int type, int samplesPerChannel, int bytesPerSample, int channels, int samplesPerSec, ByteBuffer buffer, long renderTimeMs, int avsync_type) {
-                    return false;
-                }
 
                 @Override
                 public boolean onRecordAudioFrame(String channelId, int type, int samplesPerChannel, int bytesPerSample, int channels, int samplesPerSec, ByteBuffer buffer, long renderTimeMs, int avsync_type) {
@@ -398,6 +389,11 @@ public class MainActivity extends Activity {
                 }
 
                 @Override
+                public boolean onPlaybackAudioFrameBeforeMixing(String channelId, int userId, int type, int samplesPerChannel, int bytesPerSample, int channels, int samplesPerSec, ByteBuffer buffer, long renderTimeMs, int avsync_type, int rtpTimestamp) {
+                    return false;
+                }
+
+                @Override
                 public int getObservedAudioFramePosition() {
                     return 0;
                 }
@@ -419,11 +415,6 @@ public class MainActivity extends Activity {
 
                 @Override
                 public AudioParams getEarMonitoringAudioParams() {
-                    return null;
-                }
-
-                @Override
-                public AudioParams getPublishAudioParams() {
                     return null;
                 }
             });
