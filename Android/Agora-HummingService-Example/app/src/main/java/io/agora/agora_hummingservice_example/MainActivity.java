@@ -333,6 +333,7 @@ public class MainActivity extends Activity {
                 updateRoleSpeak(false);
                 mRtcEngine.leaveChannel();
                 mInitCount = 0;
+                HummingService.destroy();
                 initHumming();
                 Toast.makeText(MainActivity.this, "设置服务区域成功", Toast.LENGTH_SHORT).show();
             }
