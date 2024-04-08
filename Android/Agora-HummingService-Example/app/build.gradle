@@ -79,7 +79,7 @@ dependencies {
     implementation 'commons-codec:commons-codec:1.16.0'
 
     implementation 'io.agora.rtc:agora-special-voice:4.2.6.8'
-    implementation 'com.github.winskyan:Agora-HummingService:1.1.3'
+    implementation 'io.github.winskyan:Agora-HummingService:1.1.3'
 }
 
 static def releaseTime() {
